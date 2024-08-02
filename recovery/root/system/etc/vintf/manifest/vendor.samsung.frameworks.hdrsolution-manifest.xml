@@ -1,0 +1,6 @@
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.samsung.frameworks.hdrsolution</name>
+        <fqname>ISehHdrSolution/default</fqname>
+    </hal>
+</manifest>

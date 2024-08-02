@@ -1,0 +1,10 @@
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>com.samsung.security.fabric.cryptod</name>
+        <version>1</version>
+        <interface>
+            <name>IFabricCryptoService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

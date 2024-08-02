@@ -1,0 +1,6 @@
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.samsung.frameworks.security.dsms</name>
+        <fqname>ISehDsms/default</fqname>
+    </hal>
+</manifest>

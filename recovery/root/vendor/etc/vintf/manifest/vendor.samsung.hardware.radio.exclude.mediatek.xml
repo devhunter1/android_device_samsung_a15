@@ -1,0 +1,14 @@
+<manifest version="1.0" type="device">
+    <hal override="true" format="hidl">
+        <name>vendor.mediatek.hardware.videotelephony</name>
+        <transport>hwbinder</transport>
+    </hal>
+    <hal override="true" format="hidl">
+        <name>vendor.mediatek.hardware.atci</name>
+        <transport>hwbinder</transport>
+    </hal>
+    <hal override="true" format="hidl">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <transport>hwbinder</transport>
+    </hal>
+</manifest>
