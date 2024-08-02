@@ -1,0 +1,12 @@
+<manifest version="1.0" type="device">
+    <!-- iweaver -->
+    <hal format="hidl" override="true">
+        <name>android.hardware.weaver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWeaver</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>
