@@ -23,3 +23,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
+    
+# Dynamic partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
