@@ -1,0 +1,3 @@
+ro.display.series=Samsung Galaxy A14
+ro.boot.dynamic_partitions=true
+sys.usb.config=mtp
