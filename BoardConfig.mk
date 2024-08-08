@@ -77,6 +77,10 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 # Platform
 TARGET_BOARD_PLATFORM := mt6789
 
+# PRODUCT_COPY_FILES directives.
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
 # System as root
 BOARD_ROOT_EXTRA_FOLDERS := carrier data_mirror debug_ramdisk efs linkerconfig metadata odm_dlkm oem optics postinstall prism second_stage_resources spu system_ext vendor_dlkm system_dlkm
 BOARD_SUPPRESS_SECURE_ERASE := true
