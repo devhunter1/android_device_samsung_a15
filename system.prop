@@ -1,3 +1,4 @@
 ro.display.series=Samsung Galaxy A15
 ro.boot.dynamic_partitions=true
 sys.usb.config=mtp
+ro.boot.boot_devices=bootdevice,soc/11270000.ufshci,11270000.ufshci
