@@ -33,8 +33,6 @@ vendor	/vendor	erofs	ro	avb,logical,first_stage_mount
 product	/product	erofs	ro	avb,logical,first_stage_mount
 odm	/odm	erofs	ro	avb,logical,first_stage_mount
 
-/dev/block/by-name/boot        /boot           emmc        defaults                  recoveryonly
-/dev/block/by-name/recovery    /recovery       emmc        defaults                  recoveryonly
 /dev/block/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	wait,length=-16384,fscompress
 /dev/block/by-name/cache       /cache          ext4        defaults                  recoveryonly
 /dev/block/by-name/sec_efs     /efs            ext4        defaults                  recoveryonly
@@ -49,7 +47,6 @@ odm	/odm	erofs	ro	avb,logical,first_stage_mount
 #/dev/block/by-name/apnhlos     /modem          emmc        defaults                  recoveryonly
 #/dev/block/by-name/modem       /mdm            emmc        defaults                  recoveryonly
 #/dev/block/by-name/dsp         /dsp            emmc        defaults                  recoveryonly
-/dev/block/by-name/dtbo        /dtbo           emmc        defaults                  recoveryonly
 /dev/block/by-name/md1img      /md1img         emmc        defaults                  recoveryonly
 /dev/block/by-name/spmfw       /spmfw          emmc        defaults                  recoveryonly
 /dev/block/by-name/scp1        /scp1           emmc        defaults                  recoveryonly
@@ -61,15 +58,10 @@ odm	/odm	erofs	ro	avb,logical,first_stage_mount
 
 #Auto-generated code by FOTA Portal
 /dev/block/by-name/gz1	/gz1	emmc	default	recoveryonly
-/dev/block/by-name/optics	/optics	ext4	default	recoveryonly
-/dev/block/by-name/prism	/prism	ext4	default	recoveryonly
 #/dev/block/by-name/cam_vpu1	/cam_vpu1	emmc	default	recoveryonly
 #/dev/block/by-name/cam_vpu2	/cam_vpu2	emmc	default	recoveryonly
 #/dev/block/by-name/cam_vpu3	/cam_vpu3	emmc	default	recoveryonly
 /dev/block/by-name/pi_img	/pi_img	emmc	default	recoveryonly
 /dev/block/by-name/vbmeta_samsung	/vbmeta_samsung	emmc	default	recoveryonly
-/dev/block/by-name/vendor_boot	/vendor_boot	emmc	default	recoveryonly
 vendor_dlkm	/vendor_dlkm	erofs	ro	avb,logical,first_stage_mount
 system_ext	/system_ext	erofs	ro	avb,logical,first_stage_mount
-
-
