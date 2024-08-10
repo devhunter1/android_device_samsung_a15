@@ -1,0 +1,7 @@
+<manifest version="1.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.mediatek.framework.mtksf_ext</name>
+        <version>3</version>
+        <fqname>IMtkSF_ext/default</fqname>
+    </hal>
+</manifest>
