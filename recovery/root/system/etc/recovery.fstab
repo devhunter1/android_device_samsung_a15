@@ -41,7 +41,7 @@ odm	/odm	erofs	ro	avb,logical,first_stage_mount
 #/dev/block/by-name/misc        /misc           emmc        defaults                  recoveryonly
 /dev/block/by-name/metadata	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,first_stage_mount,formattable,check
 # external SD card
-/dev/block/mmcblk1p1                               /sdcard         vfat       defaults                  recoveryonly
+/dev/block/mmcblk1p1                               /sdcard         auto       defaults                  recoveryonly
 
 # FOTA
 #/dev/block/by-name/apnhlos     /modem          emmc        defaults                  recoveryonly
