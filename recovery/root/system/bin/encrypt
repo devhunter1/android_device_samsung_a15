@@ -1,0 +1,95 @@
+#!/system/bin/sh
+
+patch_block() {
+    echo " - Enabling encryption..."
+    bxhsed --quiet $1 'notencryptable=|fileencryption='
+    ret=$?
+    if [ "$ret" -gt "0" ]; then
+        echo " -    Success... (${ret})"
+    elif [ "$ret" -eq "0" ]; then
+        echo " -    Already disabled..."
+    else
+        echo " -    Failed! (exit code: ${ret})"
+    fi
+}
+
+fsck() {
+    fsck.f2fs -f -y $1
+    if [ "$?" != "0" ]; then
+        echo " - Error: Failed to run fsck!"
+    fi
+}
+
+umount_vendor() {
+  echo " - Unmounting vendor..."
+  path=$1
+  if mount | grep -q ${path}; then
+    umount ${path} &>/dev/null
+    if mount | grep -q ${path}; then
+      echo " -   Unmount failed. Continue..."
+      return 1
+    fi
+  fi
+}
+
+mount_vendor() {
+  echo " - Mounting vendor..."
+  block=$1
+  path=$2
+  if mount | grep -q ${path}; then
+    umount ${path} &>/dev/null
+  fi
+  if ! mount | grep -q ${path}; then
+    mount -o ro ${block} ${path} &>/dev/null
+    if ! mount | grep -q ${path}; then
+      echo " -   Mount failed. Aborting..."
+      return 1
+    fi
+  else
+    echo " -   Device or resource busy..."
+    return 1
+  fi
+}
+
+mkdir -p /tmp/vendor
+dm_block=/dev/block/mapper/vendor
+
+umount_vendor "/vendor"
+lptools unmap vendor
+lptools map vendor
+mount_vendor "${dm_block}" "/tmp/vendor" || exit 1
+
+if ! mount | grep "/tmp/vendor" | grep -qs "f2fs"; then
+  echo " - Vendor isn't f2fs, skip..."
+  umount_vendor "/tmp/vendor" || exit 0
+  rmdir "/tmp/vendor"
+  exit 0
+fi
+
+if [ ! -e "${dm_block}" ]; then
+  echo " - Error: Could not determine vendor block..."
+  exit 1
+fi
+echo " - Detected vendor at ${dm_block}"
+
+if grep -qs "notencryptable=" /tmp/vendor/etc/fstab.*; then
+  run=true
+fi
+
+umount_vendor "/tmp/vendor" || exit 1
+
+if [ "$run" == "true" ]; then
+  patch_block $dm_block
+  fsck $dm_block
+  twrp format data
+  mke2fs -F /dev/block/by-name/metadata
+else
+  echo " - Encryption status is enabled or unknown!"
+fi
+
+sync
+rmdir /tmp/vendor
+
+echo " "
+echo " - Finished."
+echo " "
