@@ -7,3 +7,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 ```
+
+## To build TWRP :
+
+```
+. build/envsetup.sh
+lunch twrp_a15-eng
+mka recoveryimage
+```
