@@ -15,3 +15,7 @@
 lunch twrp_a15-eng
 mka recoveryimage
 ```
+
+## Device picture :
+
+![images](https://github.com/user-attachments/assets/f79623dd-58ae-4544-9150-f2799afbb7b8)
