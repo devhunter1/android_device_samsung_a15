@@ -26,6 +26,3 @@ PRODUCT_PACKAGES += \
     
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-# Some useful binaries
-PRODUCT_PACKAGES += shrink bxhsed
