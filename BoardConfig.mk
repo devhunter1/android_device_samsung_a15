@@ -153,3 +153,10 @@ TARGET_USES_LOGD := true
 
 # CPU temp sysfs path, if it is zero all the time.
 TW_CUSTOM_CPU_TEMP_PATH := true
+
+# Battery correct percentage
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity
+
+# Arrange Status bar
+TW_CUSTOM_CPU_POS := 290
+TW_CUSTOM_CLOCK_POS := 40
