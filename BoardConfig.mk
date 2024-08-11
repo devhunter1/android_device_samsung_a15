@@ -150,9 +150,7 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-
-# CPU temp sysfs path, if it is zero all the time.
-TW_CUSTOM_CPU_TEMP_PATH := true
+TW_NO_CPU_TEMP := true
 
 # Battery correct percentage
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity
