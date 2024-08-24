@@ -5,3 +5,56 @@
 /odm_image		emmc	/dev/block/mapper/odm		flags=backup=0;flashimg;display="Odm Image"
 /system_ext_image	emmc	/dev/block/mapper/system_ext	flags=backup=0;flashimg;display="System_EXT Image"
 /vendor_dlkm_image	emmc	/dev/block/mapper/vendor_dlkm	flags=backup=0;flashimg;display="Vendor_DLKM Image"
+
+# add more partitions
+# physical partitions for backup and flashing
+/metadata	ext4		/dev/block/by-name/metadata		flags=backup=1;wipeingui;display="Metadata"
+/boot		emmc		/dev/block/by-name/boot		flags=backup=1;flashimg;display="Boot"
+/recovery	emmc		/dev/block/by-name/recovery		flags=backup=1;flashimg;display="Recovery"
+/data		f2fs		/dev/block/by-name/userdata		flags=length=-20480
+/dtbo		emmc		/dev/block/by-name/dtbo		flags=backup=1;flashimg;display="Dtbo"
+/up_param	emmc		/dev/block/by-name/up_param		flags=backup=1;display="Param"
+/optics_image	emmc		/dev/block/by-name/optics		flags=backup=1;flashimg;display="Optics Image"
+/prism_image	emmc		/dev/block/by-name/prism		flags=backup=1;flashimg;display="Prism Image"
+/vbmeta_system	emmc		/dev/block/by-name/vbmeta_system
+/init_boot	emmc            /dev/block/by-name/init_boot		flags=backup=1;flashimg;display="Init Boot"
+/vendor_boot	emmc		/dev/block/by-name/vendor_boot	flags=backup=1;flashimg;display="Vendor Boot"
+/vbmeta_samsung	emmc		/dev/block/by-name/vbmeta_samsung
+/cache		ext4		/dev/block/by-name/cache		flags=backup=1;display="Cache"
+
+# other partitions
+/tee1		   emmc	       /dev/block/by-name/tee1	         flags=display="TEE1";backup=1
+/scp1              emmc	       /dev/block/by-name/scp1	         flags=display="SCP1";backup=1
+/sec1	           emmc	       /dev/block/by-name/sec1	         flags=display="SEC1";backup=1
+/sspm_1	           emmc	       /dev/block/by-name/sspm_1	         flags=display="SSPM1";backup=1
+/md1img		   emmc	       /dev/block/by-name/md1img	         flags=display="MD1İMG";backup=1
+/md5hdr		   emmc	       /dev/block/by-name/md5hdr	         flags=display="MD5HDR";backup=1
+/proinfo           emmc	       /dev/block/by-name/proinfo	         flags=display="PROINFO";backup=1;flashimg=1
+/gz1		   emmc	       /dev/block/by-name/gz1	         flags=display="GZ1";backup=1
+/spmfw		   emmc	       /dev/block/by-name/spmfw	         flags=display="SPMFW";backup=1
+/boot_para	   emmc	       /dev/block/by-name/boot_para	         flags=display="BOOT_PARA";backup=1;flashimg=1
+/omr               emmc        /dev/block/by-name/omr                flags=display="OMR";backup=1
+/mcupm_1           emmc	       /dev/block/by-name/mcupm_1	         flags=display="MCUPM_1";backup=1
+/tzar		   emmc	       /dev/block/by-name/tzar	         flags=display="TZAR";backup=1
+/uh                emmc        /dev/block/by-name/uh                 flags=display="UH";backup=1;flashimg=1
+/pi_img            emmc        /dev/block/by-name/pi_img             flags=display="PI_IMG";backup=1;flashimg=1
+/optics            ext4        /dev/block/by-name/optics             flags=display="Optics";backup=1
+/prism             ext4        /dev/block/by-name/prism              flags=display="Prism";backup=1
+/frp               ext4        /dev/block/by-name/frp              flags=display="frp";backup=1
+/nvdata            ext4        /dev/block/by-name/nvdata             flags=display="NVDATA";backup=1
+/nvcfg             ext4        /dev/block/by-name/nvcfg              flags=display="NVCFG";backup=1
+/nvram             emmc        /dev/block/by-name/nvram              flags=display="NVRAM";backup=1;flashimg=1
+/up_param          emmc        /dev/block/by-name/up_param           flags=display="UP_PARAM";backup=1;flashimg=1
+/efs               ext4        /dev/block/by-name/efs                flags=display="EFS";backup=1
+/efuse             emmc        /dev/block/by-name/efuse              flags=display="EFUSE";backup=1;flashimg=1
+/sec_efs           ext4        /dev/block/by-name/sec_efs            flags=display="SEC EFS";backup=1
+/keydata           ext4        /dev/block/by-name/keydata            flags=display="Keydata";backup=1
+/keyrefuge         ext4        /dev/block/by-name/keyrefuge          flags=display="Keyrefuge";backup=1
+/persistent        emmc        /dev/block/by-name/persistent         flags=display="Persistent";backup=1
+/protect1          emmc        /dev/block/by-name/protect1	     flags=display="Protect1";backup=1
+/protect2          emmc        /dev/block/by-name/protect2	     flags=display="Protect2";backup=1
+/param             emmc        /dev/block/by-name/emmc		     flags=display="Param";backup=1
+
+# SD Card & USB-OTG storage
+/external_sd       vfat        /dev/block/mmcblk0p1         /dev/block/mmcblk0                       flags=fsflags=utf8;display="MicroSD";storage;wipeingui;removable
+/usb_otg           vfat        /dev/block/sdd1              /dev/block/sdd                           flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable;
